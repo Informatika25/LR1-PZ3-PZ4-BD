@@ -2,7 +2,11 @@ import mysql.connector
 from sqlalchemy import create_engine
 import pandas as pd
 
-
+db_config = {
+    'host': 'localhost',
+    'user': '',
+    'password': '',
+}
 
 
 class Database():
@@ -128,6 +132,7 @@ class Database():
 
 
 tab = Database("zolotova_fitnes_clubs", db_config)
+print("Подключение успешно!" if tab.connection.is_connected() else "Ошибка подключения")
 
 
 tab.foreign_key("zolotova_client_info", "client_id", "zolotova_fitnes_club_clients")
